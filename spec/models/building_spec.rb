@@ -19,6 +19,6 @@ describe Building do
   end
 
   # context 'associations' do
-  #   it { should belong_to(:owner)}
+  #   it { should belong_to(:owner).dependent(:destroy) }
   # end
 end

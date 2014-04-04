@@ -23,29 +23,26 @@ feature 'create a building', %Q{
     prev_count = Building.count
     visit buildings_path
     click_on 'Add a Building'
+
     fill_in 'Street Address', with: '33 Harrison Ave'
     fill_in 'City', with: 'Boston'
-    # save_and_open_page
     select 'MA', from: 'State'
     fill_in 'Postal Code', with: '02355'
     click_button 'Add Building'
+
     expect(page).to have_content('Building added!')
     expect(page).to have_content('Add Building')
     expect(Building.count).to eq(prev_count + 1)
   end
 
-  scenario 'with invalid attributes'
+  scenario 'with invalid attributes' do
+    prev_count = Building.count
+    visit buildings_path
+    click_on 'Add a Building'
 
+    click_button 'Add Building'
+    expect(page).to_not have_content('Building added!')
+    expect(page).to have_content "can't be blank"
+    expect(Building.count).to eq(prev_count)
+  end
 end
-
-
-
-
-
-
-
-
-
-
-
-
