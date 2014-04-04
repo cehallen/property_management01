@@ -14,11 +14,11 @@ describe Building do
     it { should have_valid(:postal_code).when('04576') }
     it { should_not have_valid(:postal_code).when('', nil, 'abc') }
 
-    # it { should have_valid(:building_owner).when(Owner.new) }
-    # it { should_not have_valid(:building_owner).when(nil, '') }
+    it { should have_valid(:owner).when(Owner.new) }
+    it { should_not have_valid(:owner).when(nil) }
   end
 
-  # context 'associations' do
-  #   it { should belong_to(:owner).dependent(:destroy) }
-  # end
+  context 'associations' do
+    it { should belong_to(:owner) }
+  end
 end

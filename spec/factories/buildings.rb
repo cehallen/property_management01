@@ -2,9 +2,10 @@
 
 FactoryGirl.define do
   factory :building do
-    street_address "MyString"
-    city "MyString"
-    state "MyString"
-    postal_code 1
+    street_address "22 Washington St"
+    city "Miami"
+    state "FL"
+    postal_code 34812
+    association :owner, factory: :owner
   end
 end

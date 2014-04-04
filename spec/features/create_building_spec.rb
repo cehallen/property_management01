@@ -19,11 +19,16 @@ feature 'create a building', %Q{
 # * Upon successfully creating a building, I am redirected 
 #   so that I can record another building.
 
+  before(:each) do
+    @owner = FactoryGirl.create(:owner)
+  end
+
   scenario 'with valid attributes' do
     prev_count = Building.count
     visit buildings_path
     click_on 'Add a Building'
 
+    select 'John Smith', from: 'Owner'
     fill_in 'Street Address', with: '33 Harrison Ave'
     fill_in 'City', with: 'Boston'
     select 'MA', from: 'State'

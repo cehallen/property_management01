@@ -30,15 +30,15 @@ feature 'create a building', %Q{
     expect(Owner.count).to eq(prev_count + 1)
   end
 
-  # scenario 'with invalid attributes' do
-  #   prev_count = Owner.count
-  #   visit owners_path
-  #   click_on 'Add an Owner'
+  scenario 'with invalid attributes' do
+    prev_count = Owner.count
+    visit owners_path
+    click_on 'Add an Owner'
 
-  #   click_button 'Add Owner'
+    click_button 'Add Owner'
 
-  #   expect(page).to have_content("can't be blank")
-  #   expect(page).to have_content('Add Owner')
-  #   expect(Owner.count).to eq(prev_count)
-  # end
+    expect(page).to have_content("can't be blank")
+    expect(page).to have_content('Add Owner')
+    expect(Owner.count).to eq(prev_count)
+  end
 end

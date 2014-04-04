@@ -4,6 +4,7 @@ class BuildingsController < ApplicationController
   end
 
   def new
+    @owners = Owner.all.map{ |o| [o.full_name, o.id] }
     @building = Building.new
     @states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL',
       'IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE',
@@ -25,6 +26,6 @@ class BuildingsController < ApplicationController
 
   def building_params
     params.require(:building)
-      .permit(:street_address, :city, :state, :postal_code, :description)
+      .permit(:street_address, :city, :state, :postal_code, :description, :owner_id)
   end
 end
