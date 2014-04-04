@@ -15,7 +15,7 @@ feature 'create a building', %Q{
 #   and I am redirected to enter another new owner
 
   scenario 'with valid attributes' do
-    
+    visit 
   end
 
   scenario 'with invalid attributes' do
