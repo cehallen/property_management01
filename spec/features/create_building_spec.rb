@@ -25,7 +25,8 @@ feature 'create a building', %Q{
     click_on 'Add a Building'
     fill_in 'Street Address', with: '33 Harrison Ave'
     fill_in 'City', with: 'Boston'
-    fill_in 'State', with: 'MA'
+    # save_and_open_page
+    select 'MA', from: 'State'
     fill_in 'Postal Code', with: '02355'
     click_button 'Add Building'
     expect(page).to have_content('Building added!')
