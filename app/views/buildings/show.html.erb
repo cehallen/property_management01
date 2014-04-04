@@ -1,0 +1,16 @@
+<h3><%= @building.street_address %></h3>
+
+<table>
+  <tr>
+    <th>City</th>
+    <th>State</th>
+    <th>Postal Code</th>
+  </tr>
+  <tr>
+    <%= @building.city %>
+    <%= @building.state %>
+    <%= @building.postal_code %>
+  </tr>
+</table>
+
+<p><%= link_to 'Building Home', buildings_path %></p>
