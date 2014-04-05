@@ -45,6 +45,7 @@ feature 'create a building', %Q{
     click_on 'Add a Building'
 
     click_button 'Add Building'
+    
     expect(page).to_not have_content('Building added!')
     expect(page).to have_content "can't be blank"
     expect(Building.count).to eq(prev_count)
