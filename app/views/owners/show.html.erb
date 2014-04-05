@@ -15,4 +15,6 @@
   </tr>
 </table>
 
-<p><%= link_to 'Add a Building', new_building_path %></p>
+<p><%= link_to 'Add a Building', new_owner_building_path(@owner) %></p>
+<p><%= link_to "All #{@owner.first_name}'s Buildings", 
+  owner_buildings_path(@owner) %></p>

@@ -11,4 +11,6 @@
   <% end %>
 </table>
 
-<p><%= link_to 'Add a Building', new_building_path %></p>
+<p><%= link_to "Back to #{@owner.first_name}'s Home Page", 
+  owner_path(@owner) %></p>
+<p><%= link_to 'Owners', owners_path %></p>

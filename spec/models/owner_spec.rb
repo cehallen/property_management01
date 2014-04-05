@@ -16,4 +16,12 @@ describe Owner do
   context 'associations' do
     it { should have_many(:buildings).dependent(:destroy) }
   end
+
+  # # meant to check if destroy dependency works (it does) but test doesn't
+  # context 'deleting an owner also deletes associated buildings' do
+  #   building = FactoryGirl.create(:building)
+  #   owner = building.owner
+  #   building.destroy
+  #   expect(building).to_not be_valid
+  # end
 end

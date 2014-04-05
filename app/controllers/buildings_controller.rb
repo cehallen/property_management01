@@ -1,24 +1,34 @@
 class BuildingsController < ApplicationController
   def index
+    @owner = Owner.find(params[:owner_id])
     @buildings = Building.order(created_at: :desc)
   end
 
   def new
-    @owners = Owner.all.map{ |o| [o.full_name, o.id] }
+    # binding.pry
+    @owner = Owner.find(params[:owner_id])
+    # binding.pry
     @building = Building.new
+    # binding.pry
     @states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL',
       'IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE',
       'NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD',
       'TN','TX','UT','VT','VA','WA','WV','WI','WY']
+    # binding.pry
   end
 
   def create
     @building = Building.new(building_params)
+    @owner = Owner.find(params[:owner_id])
+    @building.owner_id = @owner.id
+    @building.owner_id = params[:owner_id] # for some reason this isn't enough
+    # binding.pry
     if @building.save
-      redirect_to new_building_path, 
+      # binding.pry
+      redirect_to new_owner_building_path(@owner), 
         notice: 'Building added!'
     else
-      render :new
+      render 'buildings/new'
     end
   end
 
@@ -26,6 +36,6 @@ class BuildingsController < ApplicationController
 
   def building_params
     params.require(:building)
-      .permit(:street_address, :city, :state, :postal_code, :description, :owner_id)
+      .permit(:street_address, :city, :state, :postal_code, :description)
   end
 end

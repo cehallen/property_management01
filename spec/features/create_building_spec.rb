@@ -25,10 +25,9 @@ feature 'create a building', %Q{
 
   scenario 'with valid attributes' do
     prev_count = Building.count
-    visit buildings_path
+    visit owner_path(@owner)
     click_on 'Add a Building'
 
-    select 'John Smith', from: 'Owner'
     fill_in 'Street Address', with: '33 Harrison Ave'
     fill_in 'City', with: 'Boston'
     select 'MA', from: 'State'
@@ -42,7 +41,7 @@ feature 'create a building', %Q{
 
   scenario 'with invalid attributes' do
     prev_count = Building.count
-    visit buildings_path
+    visit owner_path(@owner)
     click_on 'Add a Building'
 
     click_button 'Add Building'
