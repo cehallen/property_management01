@@ -5,6 +5,8 @@ class OwnersController < ApplicationController
 
   def show
     @owner = Owner.find(params[:id])
+    # @buildings = Building.where(owner_id: @owner.id)
+    # refresh your SQL and ARel to get the buildings of this owner.
   end
 
   def new

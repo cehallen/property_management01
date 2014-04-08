@@ -17,7 +17,7 @@ class BuildingsController < ApplicationController
     @building = Building.new(building_params)
     @owner = Owner.find(params[:owner_id])
     @building.owner_id = @owner.id
-    @building.owner_id = params[:owner_id] # for some reason this isn't enough
+    # @building.owner_id = params[:owner_id] ## isn't enough
     if @building.save
       redirect_to new_owner_building_path(@owner), 
         notice: 'Building added!'

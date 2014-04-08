@@ -1,10 +1,30 @@
-<h3>Add Building</h3>
+<h4>Add Building</h4>
 
 <%= simple_form_for [@owner, @building] do |f| %>
-  <%= f.input :street_address, label: 'Street Address', input_html: { size: 30 } %>
-  <%= f.input :city, input_html: { size: 30 } %>
-  <%= f.input :state, collection: @states %>
-  <%= f.input :postal_code, label: 'Postal Code', input_html: { size: 30 } %>
-  <%= f.input :description, as: :text %>
-  <%= f.button :submit, 'Add Building' %>
+  <div class="row">
+    <div class="small-12 columns">
+      <%= f.input :street_address, label: 'Street Address' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-4 columns">
+      <%= f.input :city %>
+    </div>
+    <div class="small-12 medium-4 columns">
+      <%= f.input :state, collection: @states %>
+    </div>
+    <div class="small-12 medium-4 columns">
+      <%= f.input :postal_code, label: 'Postal Code' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+        <%= f.input :description, as: :text %>
+    </div>
+  </div>
+  <div> <!-- couldn't get button size or shape to change -->
+    <%= f.button :submit, 'Add Building' %>
+  </div>
 <% end %>
+
+<p><%= link_to "Back to Owner", owner_path(@owner) %></p>

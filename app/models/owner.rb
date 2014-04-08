@@ -6,6 +6,8 @@ class Owner < ActiveRecord::Base
     message: "Invalid email format" }
 
   has_many :buildings, 
+    # dependent: :nullify #this may be a better option as Adam pointed out.  
+    # just need the building's owner foreign key OK as null
     dependent: :destroy,
     inverse_of: :owner
 
