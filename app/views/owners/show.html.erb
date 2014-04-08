@@ -1,0 +1,18 @@
+<h3><%= @owner.full_name %></h3>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Company Name</th>
+    <th>Buildings</th>
+  </tr>
+  <tr>
+    <%= @owner.email %>
+    <%= @owner.company_name %>
+    <% @owner.buildings.each do |building| %>
+      <li><%= building.street_address %></li>
+    <% end %>
+  </tr>
+</table>
+
+<p><%= link_to 'Add a Building', new_building_path %></p>

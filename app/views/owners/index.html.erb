@@ -1,0 +1,14 @@
+<h3>All the Owners</h3>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% @owners.each do |owner| %>
+    <tr>
+      <td><%= owner.full_name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to 'Add an Owner', new_owner_path %></p>

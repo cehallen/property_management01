@@ -1,0 +1,14 @@
+<h3>All the Buildings</h3>
+
+<table>
+  <tr>
+    <th>Address</th>
+  </tr>
+  <% @buildings.each do |building| %>
+    <tr>
+      <td><%= building.street_address %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to 'Add a Building', new_building_path %></p>
